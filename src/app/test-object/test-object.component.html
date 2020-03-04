@@ -1,0 +1,22 @@
+<p>test-object works!</p>
+
+<div 
+  fxFlexLayout="column wrap" fxLayoutAlign="center center" class="metrics">
+  <span *ngFor="let metric of extrasMetrics">
+    <div *ngIf="model && model.extra[metric]"
+    class="item">
+    <ng-container *ngIf="metric === 'isActive'; else elseBlock">
+      {{extrasLabels[metric]}}
+      <strong style="color: red;">
+          This guy is active!
+        </strong>
+      </ng-container>
+      <ng-template #elseBlock>
+        {{extrasLabels[metric]}}
+        <strong>
+          {{model.extra[metric]}}
+        </strong>
+      </ng-template>
+    </div>
+  </span>
+</div>
